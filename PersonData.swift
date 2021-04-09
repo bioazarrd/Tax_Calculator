@@ -10,10 +10,10 @@ import Foundation
 class PersonData {
     
     let state: State
-    let ssn: Double
-    let grossIncome: Double
+    let ssn: Decimal
+    let grossIncome: Decimal
     
-    init(state: State, ssn: Double, grossIncome: Double) {
+    init(state: State, ssn: Decimal, grossIncome: Decimal) {
         self.state = state
         self.ssn = ssn
         self.grossIncome = grossIncome

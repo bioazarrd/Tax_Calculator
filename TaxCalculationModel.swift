@@ -13,152 +13,252 @@ import Foundation
 //taxEstimate could be class/structure as well (proper name for all)
 
 
-enum State  {
+enum State: String  {
+    
+    
+    
     case AL, AZ, AR, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
     
     public static func getValue(state: State) -> Double {
-        if state == .AL || state == .AZ || state == .AR || state == .CA || state == .CO || state == .CT || state == .DE || state == .DC || state == .FL || state == .GA || state == .HI || state == .ID || state == .IL || state == .IN || state == .IA || state == .KS || state == .KY || state == .LA || state == .ME || state == .MD || state == .MA || state == .MI || state == .MN || state == .MS || state == .MO || state == .MT || state == .NE || state == .NV || state == .NH || state == .NJ {
+        if state == .AL {
             return 20.28
+        } else if state == .AZ {
+            return 22.48
+        } else if state == .AR {
+            return 15.99
+        } else if state == .CA {
+            return 18.54
+        } else if state == .CO {
+            return 15.95
+        } else if state == .CT {
+            return 20.56
+        } else if state == .DE {
+            return 19.59
+        } else if state == .DC {
+            return 19.58
+        } else if state == .FL {
+            return 19.62
+        } else if state == .GA {
+            return 22.31
+        } else if state == .HI {
+            return 20.54
+        } else if state == .ID {
+            return 19.84
+        } else if state == .IL {
+            return 22.58
+        } else if state == .IN {
+            return 28.47
+        } else if state == .IA {
+            return 16.95
+        } else if state == .KS {
+            return 16.48
+        } else if state == .KY {
+            return 15.48
+        } else if state == .LA {
+            return 20.36
+        } else if state == .ME {
+            return 22.48
+        } else if state == .MD {
+            return 36.99
+        } else if state == .MA {
+            return 10.52
+        } else if state == .MI {
+            return 14.84
+        } else if state == .MN {
+            return 16.97
+        } else if state == .MS {
+            return 19.35
+        } else if state == .MO {
+            return 15.51
+        } else if state == .MT {
+            return 25.51
+        } else if state == .NE {
+            return 16.51
+        } else if state == .NV {
+            return 18.95
+        } else if state == .NH {
+            return 19.84
+        } else if state == .NJ {
+            return 16.39
+        } else if state == .NM {
+            return 20.58
+        } else if state == .NY {
+            return 17.85
+        } else if state == .NC {
+            return 19.85
+        } else if state == .ND {
+            return 17.90
+        } else if state == .OH {
+            return 18.94
+        } else if state == .OK {
+            return 14.97
+        } else if state == .OR {
+            return 15.97
+        } else if state == .PA {
+            return 12.97
+        } else if state == .RI {
+            return 18.49
+        } else if state == .SC {
+            return 24.80
+        } else if state == .SD {
+            return 20.94
+        } else if state == .TN {
+            return 26.51
+        } else if state == .TX {
+            return 21.22
+        } else if state == .UT {
+            return 25.48
+        } else if state == .VT {
+            return 17.58
+        } else if state == .VA {
+            return 19.48
+        } else if state == .WA {
+            return 19.58
+        } else if state == .WV {
+            return 14.85
+        } else if state == .WI {
+            return 18.58
         } else {
-            return 25.89
+            return 10.97
         }
     }
+    
+    static let allValues = [AL, AZ, AR, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY]
 }
 
 class TaxCalculationModel {
     
-
-    static func federalTax(personData: PersonData) -> Double {
+    static func federalTax(personData: PersonData) -> Decimal {
         
-        let fedTax: Double
+        let fedTax: Decimal
         let grossAmount = personData.grossIncome
         
         switch personData.state {
         case .AL:
-            fedTax = Double(grossAmount * 0.1767)
+            fedTax = grossAmount * 0.1767
         case .AZ:
-            fedTax = Double(grossAmount * 0.1156)
+            fedTax = grossAmount * 0.1156
         case .AR:
-            fedTax = Double(grossAmount * 0.1894)
+            fedTax = grossAmount * 0.1894
         case .CA:
-            fedTax = Double(grossAmount * 0.1659)
+            fedTax = grossAmount * 0.1659
         case .CO:
-            fedTax = Double(grossAmount * 0.1578)
+            fedTax = grossAmount * 0.1578
         case .CT:
-            fedTax = Double(grossAmount * 0.1356)
+            fedTax = grossAmount * 0.1356
         case .DE:
-            fedTax = Double(grossAmount * 0.1178)
+            fedTax = grossAmount * 0.1178
         case .DC:
-            fedTax = Double(grossAmount * 0.1982)
+            fedTax = grossAmount * 0.1982
         case .FL:
-            fedTax = Double(grossAmount * 0.1478)
+            fedTax = grossAmount * 0.1478
         case .GA:
-            fedTax = Double(grossAmount * 0.1879)
+            fedTax = grossAmount * 0.1879
         case .HI:
-            fedTax = Double(grossAmount * 0.1498)
+            fedTax = grossAmount * 0.1498
         case .ID:
-            fedTax = Double(grossAmount * 0.1398)
+            fedTax = grossAmount * 0.1398
         case .IL:
-            fedTax = Double(grossAmount * 0.1158)
+            fedTax = grossAmount * 0.1158
         case .IN:
-            fedTax = Double(grossAmount * 0.1248)
+            fedTax = grossAmount * 0.1248
         case .IA:
-            fedTax = Double(grossAmount * 0.1389)
+            fedTax = grossAmount * 0.1389
         case .KS:
-            fedTax = Double(grossAmount * 0.1487)
+            fedTax = grossAmount * 0.1487
         case .KY:
-            fedTax = Double(grossAmount * 0.1589)
+            fedTax = grossAmount * 0.1589
         case .LA:
-            fedTax = Double(grossAmount * 0.1387)
+            fedTax = grossAmount * 0.1387
         case .ME:
-            fedTax = Double(grossAmount * 0.1315)
+            fedTax = grossAmount * 0.1315
         case .MD:
-            fedTax = Double(grossAmount * 0.1258)
+            fedTax = grossAmount * 0.1258
         case .MA:
-            fedTax = Double(grossAmount * 0.1354)
+            fedTax = grossAmount * 0.1354
         case .MI:
-            fedTax = Double(grossAmount * 0.1156)
+            fedTax = grossAmount * 0.1156
         case .MN:
-            fedTax = Double(grossAmount * 0.1156)
+            fedTax = grossAmount * 0.1156
         case .MS:
-            fedTax = Double(grossAmount * 0.1263)
+            fedTax = grossAmount * 0.1263
         case .MO:
-            fedTax = Double(grossAmount * 0.1354)
+            fedTax = grossAmount * 0.1354
         case .MT:
-            fedTax = Double(grossAmount * 0.1156)
+            fedTax = grossAmount * 0.1156
         case .NE:
-            fedTax = Double(grossAmount * 0.1158)
+            fedTax = grossAmount * 0.1158
         case .NV:
-            fedTax = Double(grossAmount * 0.1325)
+            fedTax = grossAmount * 0.1325
         case .NH:
-            fedTax = Double(grossAmount * 0.1321)
+            fedTax = grossAmount * 0.1321
         case .NJ:
-            fedTax = Double(grossAmount * 0.1321)
+            fedTax = grossAmount * 0.1321
         case .NM:
-            fedTax = Double(grossAmount * 0.1327)
+            fedTax = grossAmount * 0.1327
         case .NY:
-            fedTax = Double(grossAmount * 0.1325)
+            fedTax = grossAmount * 0.1325
         case .NC:
-            fedTax = Double(grossAmount * 0.1984)
+            fedTax = grossAmount * 0.1984
         case .ND:
-            fedTax = Double(grossAmount * 0.1327)
+            fedTax = grossAmount * 0.1327
         case .OH:
-            fedTax = Double(grossAmount * 0.1698)
+            fedTax = grossAmount * 0.1698
         case .OK:
-            fedTax = Double(grossAmount * 0.1697)
+            fedTax = grossAmount * 0.1697
         case .OR:
-            fedTax = Double(grossAmount * 0.1478)
+            fedTax = grossAmount * 0.1478
         case .PA:
-            fedTax = Double(grossAmount * 0.1324)
+            fedTax = grossAmount * 0.1324
         case .RI:
-            fedTax = Double(grossAmount * 0.1158)
+            fedTax = grossAmount * 0.1158
         case .SC:
-            fedTax = Double(grossAmount * 0.1256)
+            fedTax = grossAmount * 0.1256
         case .SD:
-            fedTax = Double(grossAmount * 0.1155)
+            fedTax = grossAmount * 0.1155
         case .TN:
-            fedTax = Double(grossAmount * 0.1111)
+            fedTax = grossAmount * 0.1111
         case .TX:
-            fedTax = Double(grossAmount * 0.1234)
+            fedTax = grossAmount * 0.1234
         case .UT:
-            fedTax = Double(grossAmount * 0.1235)
+            fedTax = grossAmount * 0.1235
         case .VT:
-            fedTax = Double(grossAmount * 0.1238)
+            fedTax = grossAmount * 0.1238
         case .VA:
-            fedTax = Double(grossAmount * 0.1135)
+            fedTax = grossAmount * 0.1135
         case .WA:
-            fedTax = Double(grossAmount * 0.1158)
+            fedTax = grossAmount * 0.1158
         case .WV:
-            fedTax = Double(grossAmount * 0.1358)
+            fedTax = grossAmount * 0.1358
         case .WI:
-            fedTax = Double(grossAmount * 0.1147)
+            fedTax = grossAmount * 0.1147
         default:
-            fedTax = Double(grossAmount * 0.1145)
+            fedTax = grossAmount * 0.1145
         }
-        return round(fedTax)
+        return fedTax
     }
 
-    static func medicareTax(personData: PersonData) -> Double {
+    static func medicareTax(personData: PersonData) -> Decimal {
         let personState: State = personData.state
-        let medicareTax: Double = State.getValue(state: personState)
+        let medicareTax: Decimal = Decimal(State.getValue(state: personState))
         return medicareTax
     }
     
-    static func socialSecurityTax(personData: PersonData) -> Double {
+    static func socialSecurityTax(personData: PersonData) -> Decimal {
         let grossAmount = personData.grossIncome
-        let ssnPercentage = personData.ssn
-        let ssnTax: Double = Double(round(grossAmount * (ssnPercentage / 100)))
-        return round(ssnTax)
+        let ssnPercentage = personData.ssn / 100
+        let ssnTax = grossAmount * ssnPercentage
+        return ssnTax
     }
 
-    static func netIncome(input: PersonData) -> Double {
+    static func netIncome(input: PersonData) -> Decimal {
         let grossIncome = input.grossIncome
         
-        let grossIncomeAfterFederalTax = Double(grossIncome) - federalTax(personData: input)
+        let grossIncomeAfterFederalTax = grossIncome - federalTax(personData: input)
         let grossIncomeAfterMedicareTax = grossIncomeAfterFederalTax - medicareTax(personData: input)
         let grossIncomeAfterSSNTax = grossIncomeAfterMedicareTax - socialSecurityTax(personData: input)
         
-        return round(grossIncomeAfterSSNTax)
+        return grossIncomeAfterSSNTax
     }
 }
 
